@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <!-- importing fontawesome kit -->
+    <script src="https://kit.fontawesome.com/667417c7ec.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="Login.css">
+
+    <!--    -->
+
+    <!-- Lets add some styling -->
+</head>
+
+<body>
+
+    <div class="container">
+        <i id="account" class="fas fa-users"></i>
+        <div class="tabs">
+            <h2 class="reg-tab">Register</h2>
+            <h2 class="login-tab">Login</h2>
+        </div>
+        <!-- login part -->
+        <div id="login-form">
+            <form action="">
+                <input type="text" name="username" id="username" placeholder="username">
+                <input type="password" name="password" id="pass" placeholder="password">
+                <div class="options">
+                    <div class="remember">
+                        <input type="checkbox" name="rem" id="rem">
+                        <p>Remember Me</p>
+                    </div>
+                 <!--  <a href="#">Forget Password ?</a> --> 
+                </div>
+                <button type="submit" onclick="check_empty();" >Login</button>
+            </form>
+        </div>
+        <!-- Lets add registration form -->
+        <div id="registration-form">
+            <form action="">
+                <input type="text" name="username" id="username" placeholder="Enter Username">
+                <input type="email" name="email" id="email" placeholder="Enter Email">
+                <input type="password" name="pass" id="pass" placeholder="Enter Password">
+                <input type="password" name="confirm-pass" id="conform-pass" placeholder="Confirm Password">
+                <div class="tnc">
+                    <input type="checkbox" name="accept" id="accept">
+                    <p>I accept the <a href="#">Terms & Conditions</a></p>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+
+    </div>
+    <!-- lets use some javascript to make these tabs to work -->
+    <script type="text/javascript">
+        const reg_form = document.querySelector("#registration-form");
+        const login_form = document.querySelector("#login-form");
+
+        const reg_tab = document.querySelector('.reg-tab');
+        const login_tab = document.querySelector('.login-tab');
+
+        reg_tab.addEventListener('click',e=>{
+            login_form.style.display = 'none';
+            reg_form.style.display = 'block';
+            reg_tab.classList.add('active');
+            login_tab.classList.remove('active')
+        })
+        login_tab.addEventListener('click',e=>{
+            reg_form.style.display = 'none';
+            login_form.style.display = 'block';
+            reg_tab.classList.remove('active');
+            login_tab.classList.add('active')
+        })
+
+         <!--
+            function check_empty() {
+                var username = "";
+                username = document.getElementById("username").value;
+                if (username=="") 
+                    alert('وارد کردن نام کاربری الزامی است');
+                else{
+                    var r = confirm("از صحت اطلاعات وارد شده اطمینان دارید؟");
+                    if (r == true){
+                        document.register.submit();
+                    }
+                }
+                
+            }
+            -->
+    </script>
+</body>
+
+</html>
